@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Show Server Time</title>
+    <!-- Reference CSS file -->
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+    <p th:text="'Time on the server: ' + ${date}" class="funny">Default time</p>
+</body>
+</html>

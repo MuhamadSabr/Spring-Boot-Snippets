@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Form</title>
+</head>
+<body>
+<form th:action="@{/processForm}" method="POST" th:object="${customer}">
+    <label>First Name :
+        <input type="text" th:field="*{firstName}"/>
+    </label>
+    <br><br>
+
+    <label>Last Name(*):
+        <input type="text" th:field="*{lastName}"/>
+    </label>
+
+    <!--Check if errors are present using th:if. Show errors' messages that have already been defined in the Customer Model Class-->
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red"></span>
+
+    <br><br>
+
+    <label>Free Passes(*):
+        <input type="text" th:field="*{freePasses}"/>
+    </label>
+
+    <!-- Check if errors are present on freePasses field using th:if. Show all errors defined on the field freePasses if yes-->
+    <span th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" style="color:#fe1111"></span>
+    <br><br>
+
+    <label>Postal Code(*):
+        <input type="text" th:field="*{postalCode}"/>
+    </label>
+
+    <!-- Show errors if present on postalCode field-->
+    <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"></span>
+    <br><br>
+
+    <label>Course Code:
+        <input type="text" th:field="*{courseCode}"/>
+    </label>
+
+    <!-- Show errors if present on courseCode field-->
+    <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}"></span>
+    <br><br>
+
+    <input type="submit"/>
+</form>
+</body>
+</html>

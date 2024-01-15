@@ -1,0 +1,36 @@
+#
+#Actuator properties
+#
+management.endpoints.web.exposure.include = *
+management.endpoints.web.exposure.actuator-path = /act
+management.info.env.enabled = true
+info.app.name = ActuatorApp
+info.app.description = Actuator is for managing, monitoring n metrics to apps
+info.app.version = 1.0.0Snapshot
+
+#
+#Security properties
+#
+spring.security.user.name     = admin
+spring.security.user.password = admin
+
+
+#
+# user-defined properties
+#
+team.name = mmd
+coach.name = Mohammed
+
+
+#
+#Web properties
+#
+server.port = 7070
+server.servlet.context-path = /my-sily-app
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>

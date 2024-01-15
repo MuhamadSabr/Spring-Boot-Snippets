@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Student Form</title>
+    </head>
+    <body>
+        <form th:action="@{/RequestParamVersion}" method="POST" name="studentForm">
+            <input type="text" name="studentName" placeholder="What's your name"/>
+            <input type="submit" value="Submit Query"/>
+        </form>
+    </body>
+</html>

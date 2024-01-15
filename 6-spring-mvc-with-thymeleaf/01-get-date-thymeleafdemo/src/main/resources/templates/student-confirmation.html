@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Confirmation for: <span th:text="${student.studentId} +' '+ ${student.firstName} +' '+
+ ${student.lastName} +' '+ ${student.getCountry}"/></p>
+
+<p th:text="'Favorite language ' + ${student.favoriteLanguage}"></p>
+
+<p th:text="'Favorite Operating Systems ' + ${student.favoriteOSs}"></p>
+
+<p>Favorite Operating Systems:</p>
+<ul style="list-style-type:square;color:green">
+    <li th:each="os : ${student.favoriteOSs}" th:text="${os}">default item</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+CREATE TABLE hr.instructor_detail(
+	id	number(11) generated always as identity,
+	youtube_channel	varchar2(128)  not null,
+	hobby		varchar2(45)	not null,
+CONSTRAINT instr_det_pr PRIMARY KEY(id)
+);
+
+CREATE TABLE hr.instructor(
+	id	number(11)	generated always as identity
+	first_name	varchar2(45)	not null,
+	last_name	varchar2(45)	not null,
+	email		varchar2(45)	not null,
+	instructor_detail_id	number(11) ,
+CONSTRAINT instr_pk PRIMARY KEY (id),
+CONSTRAINT fk_instr_detail FOREIGN KEY(instructor_detail_id) REFERENCES hr.instructor_detail(id)
+)
+
+
+CREATE TABLE hr.course(
+	id number(11) GENERATED ALWAYS AS IDENTITY,
+	title varchar2(128) UNIQUE,
+	instructor_id number(11),
+CONSTRAINT course_pk PRIMARY KEY(id),
+CONSTRAINT instr_fk FOREIGN KEY(instructor_id) REFERENCES hr.instructor(id)
+)
+
+CREATE TABLE hr.review(
+	id number(11) generated always as identity,
+	feedback varchar2(256),
+	course_id number(11) CONSTRAINT course_fk REFERENCES hr.Course(id)
+)

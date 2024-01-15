@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+<head>
+    <meta charset="UTF-8">
+    <title>MMD Home Page</title>
+</head>
+<body>
+
+<h2>MMD Company Home Page</h2>
+<hr>
+<p>Welcome to the MMD company home page '<span sec:authentication="principal.username"></span>, <span sec:authentication="principal.authorities"></span>'</p>
+
+
+<div sec:authorize="hasRole('MANAGER')">
+    <!-- Include /leaders only for those that has the role MANAGER and include the comment here because it may give up hints-->
+    <p><a th:href="@{/leaders}">Leadership Meeting</a> (Only for leadership peeps)</p>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <!-- Include /systemAdmins only for users with the role ADMIN, Even hide the comment-->
+    <p><a th:href="@{/systemAdmins}">IT System Meeting</a> (Only for admin peeps)</p>
+</div>
+
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout">
+</form><br><br>
+
+
+</body>
+</html>
